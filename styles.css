@@ -1,0 +1,193 @@
+:root {
+  color-scheme: dark;
+  --night: #081126;
+  --night-soft: #111d3d;
+  --card: rgba(24, 36, 74, 0.88);
+  --card-border: rgba(190, 179, 255, 0.25);
+  --ink: #f7f3e9;
+  --muted: #c6c6dc;
+  --lilac: #b9a7ff;
+  --gold: #f2cf78;
+  --danger: #ffd7a1;
+  --max: 78rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--night);
+  color: var(--ink);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.65;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 12% 4%, rgba(129, 109, 238, 0.32), transparent 30rem),
+    radial-gradient(circle at 92% 18%, rgba(242, 207, 120, 0.12), transparent 26rem),
+    linear-gradient(155deg, #071023 0%, #0c1631 50%, #111a38 100%);
+}
+
+a {
+  color: var(--gold);
+  text-underline-offset: 0.18em;
+}
+
+a:hover,
+a:focus-visible {
+  color: #fff3c5;
+}
+
+.shell {
+  width: min(calc(100% - 2rem), var(--max));
+  margin-inline: auto;
+  padding-block: 2rem 4rem;
+}
+
+.topbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.brand {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.7rem, 4vw, 2.6rem);
+  letter-spacing: 0.02em;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.nav a {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  border: 1px solid var(--card-border);
+  border-radius: 999px;
+  padding: 0.45rem 0.9rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.nav a[aria-current="page"] {
+  border-color: var(--gold);
+  background: rgba(242, 207, 120, 0.12);
+}
+
+.draft {
+  border: 1px solid rgba(242, 207, 120, 0.52);
+  border-radius: 1rem;
+  background: rgba(71, 51, 17, 0.42);
+  padding: 0.9rem 1rem;
+  color: var(--danger);
+  margin-bottom: 1.25rem;
+}
+
+.hero,
+.card {
+  border: 1px solid var(--card-border);
+  border-radius: 1.5rem;
+  background: var(--card);
+  box-shadow: 0 1.4rem 4rem rgba(0, 0, 0, 0.22);
+  padding: clamp(1.2rem, 4vw, 2.4rem);
+}
+
+.hero h1 {
+  max-width: 18ch;
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.1rem, 7vw, 4.8rem);
+  line-height: 1.05;
+}
+
+.hero p {
+  max-width: 60ch;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.card h2,
+.card h3 {
+  margin-top: 0;
+}
+
+.card p,
+.card li {
+  color: var(--muted);
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin: 0 0 1.5rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.language-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1rem 0 2rem;
+}
+
+section[lang] {
+  scroll-margin-top: 1rem;
+}
+
+.legal-section + .legal-section {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--card-border);
+}
+
+.notice {
+  border-left: 0.3rem solid var(--gold);
+  padding: 0.75rem 1rem;
+  background: rgba(242, 207, 120, 0.08);
+}
+
+.path {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+footer {
+  margin-top: 2rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a,
+  .card,
+  .hero {
+    transition: border-color 160ms ease, background-color 160ms ease, color 160ms ease;
+  }
+
+  .card:hover,
+  .hero:hover {
+    border-color: rgba(242, 207, 120, 0.45);
+  }
+}
